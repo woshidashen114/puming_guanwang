@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #06131f;
+    --bg-soft: #0a2134;
+    --ink: #f5fbff;
+    --ink-dim: #8daabb;
+    --accent: #17c8f6;
+    --accent-2: #49e3ce;
+    --line: rgba(145, 207, 229, 0.18);
+  }
+
+  * { box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+  html { scroll-behavior: auto; }
+  body { margin: 0; overflow-x: hidden; background: var(--bg); color: var(--ink); font-family: 'Noto Sans SC', system-ui, sans-serif; }
+  ::selection { background: var(--accent); color: var(--bg); }
+  ::-webkit-scrollbar { width: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: rgba(23, 200, 246, .55); border-radius: 99px; }
+}
+
+@layer utilities {
+  .font-grotesk { font-family: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif; }
+  .preserve-3d { transform-style: preserve-3d; }
+  .perspective-1000 { perspective: 1000px; }
+  .perspective-2000 { perspective: 2000px; }
+  .text-balance { text-wrap: balance; }
+  .blueprint-grid {
+    background-image: linear-gradient(rgba(72, 177, 210, .09) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 177, 210, .09) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .fine-grid {
+    background-image: linear-gradient(rgba(72, 177, 210, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(72, 177, 210, .07) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .glass-blue { background: rgba(10, 42, 64, .62); border: 1px solid rgba(137, 218, 243, .18); backdrop-filter: blur(18px); }
+  .cyan-glow { box-shadow: 0 0 0 1px rgba(23, 200, 246, .18), 0 0 40px rgba(23, 200, 246, .14); }
+  [data-mask][data-state='visible'] { transform: translateY(0); }
+}
+
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.animate-marquee { animation: marquee 24s linear infinite; }
+@keyframes pulse-line { 0%,100% { opacity: .25; transform: scaleX(.85); } 50% { opacity: 1; transform: scaleX(1); } }
+.animate-pulse-line { animation: pulse-line 2.4s ease-in-out infinite; transform-origin: left; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+.animate-float { animation: float 5s ease-in-out infinite; }
+@keyframes scan { from { transform: translateY(-100%); } to { transform: translateY(100vh); } }
+.animate-scan { animation: scan 5s linear infinite; }
+@keyframes reveal-up { from { transform: translateY(110%); } to { transform: translateY(0); } }
